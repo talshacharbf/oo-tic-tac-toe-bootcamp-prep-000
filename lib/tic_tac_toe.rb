@@ -31,4 +31,13 @@ def move(converted_input, character)
   @board[converted_input] = character
 end
 
+def position_taken?(index)
+  position = nil
+    if (@board[index] ==  " " || @board[index] == "" || @board[index] == nil)
+    position = false
+    else
+    position = true
+    end
+    position
+
 end
