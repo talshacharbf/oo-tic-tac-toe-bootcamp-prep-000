@@ -50,4 +50,18 @@ move = nil
   end
   move
 end
+
+def turn
+  puts "Please enter 1-9:"
+  user_input = gets.strip
+  converted_input = input_to_index(user_input)
+  if valid_move?(converted_input) == true
+  move(converted_input, current_player())
+  display_board()
+  else
+    turn()
+  end
+end
+
+
 end
