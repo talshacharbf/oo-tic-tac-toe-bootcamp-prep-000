@@ -84,5 +84,32 @@ def current_player
   end
 end
 
+def won?
+  WIN_COMBINATIONS.detect do |combo|
+    @board[combo[0]] == @board[combo[1]] &&
+    @board[combo[1]] == @board[combo[2]] &&
+    position_taken?(combo[0])
+  end
+end
+
+def full?
+  @board.all? do |combo|
+    combo == "X" || combo == "O"
+  end
+end
+
+def draw?
+  full? and !won?
+end
+
+def over?
+  draw? or won?
+end
+
+def winner
+  if winner = won?
+    @board[winner[0]]
+  end
+end
 
 end
